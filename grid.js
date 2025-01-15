@@ -1,16 +1,22 @@
-const gridWidth = 16;
-const gridHeight = 16;
+const nofCells = 16;
+const maxGridWidth = 960;
 
 container = document.querySelector(".container");
 
-function createDivs(width, height) {
-  for (let i = 0; i < width; i++) {
+function createDivs(nofCells) {
+  const squareSize = maxGridWidth / nofCells;
+
+  for (let i = 0; i < nofCells; i++) {
     let column = document.createElement("div");
     column.classList.add("column");
 
-    for (let j = 0; j < height; j++) {
+    for (let j = 0; j < nofCells; j++) {
       let row = document.createElement("div");
       row.classList.add("row");
+
+      row.style.width = `${squareSize}px`;
+      row.style.height = `${squareSize}px`;
+
       column.appendChild(row);
     }
     container.appendChild(column);
@@ -32,8 +38,7 @@ function promptUser() {
   return newSize < 100 ? newSize : 100;
 }
 
-createDivs(16,16)
-
+createDivs(nofCells);
 draw();
 
 let button = document.querySelector(".new_grid");
