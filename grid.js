@@ -27,6 +27,19 @@ function draw () {
   });
 }
 
+function promptUser() {
+  let newSize = parseInt(prompt("Please enter a new number of squares per side", "16"));
+  return newSize < 100 ? newSize : 100;
+}
+
 createDivs(16,16)
 
 draw();
+
+let button = document.querySelector(".new_grid");
+button.addEventListener("click", () => {
+  const newSize = promptUser();
+  container.innerHTML = "";
+  createDivs(newSize, newSize);
+  draw();
+});
