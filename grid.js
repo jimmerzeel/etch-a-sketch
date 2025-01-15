@@ -3,10 +3,13 @@ const gridHeight = 16;
 
 container = document.querySelector(".container");
 
-for (let i = 0; i < gridWidth; i++) {
-  for (let j = 0; j < gridHeight; j++) {
-    var gridElement = document.createElement("div");
-    gridElement.textContent = `${i}, ${j}`;
-    container.appendChild(gridElement);
+function createDivs(width, height) {
+  for (let i = 0; i < width; i++) {
+    for (let j = 0; j < height; j++) {
+      var gridElement = document.createElement("div");
+      gridElement.classList.add("div");
+      gridElement.textContent = `${i}, ${j}`;
+      container.appendChild(gridElement);
+    }
   }
 }
