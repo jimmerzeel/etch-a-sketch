@@ -16,3 +16,17 @@ function createDivs(width, height) {
     container.appendChild(column);
   }
 }
+
+function draw () {
+  const hoverDivs = [...document.querySelectorAll('.row')];
+
+  hoverDivs.forEach(hoverDiv => {
+    hoverDiv.addEventListener("mouseover", () => {
+      hoverDiv.style.backgroundColor = "black";
+    });
+  });
+}
+
+createDivs(16,16)
+
+draw();
